@@ -1,0 +1,8 @@
+.tooltip{
+    border-radius: 0.25rem;
+    background: #dfdfdf;
+    color: #525253;
+    padding: 1rem;
+    box-shadow: 5px 10px 10px 5px #525253;
+    text-align: center;
+}

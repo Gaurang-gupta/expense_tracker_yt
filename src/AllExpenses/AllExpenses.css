@@ -1,0 +1,17 @@
+.allExpenses{
+    background-color: #f0f0f0;
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 88%;
+    margin-bottom: 1%;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+}
+
+.allExpenses__expenseTable{
+    width: 96%;
+    margin: auto;
+    height: 88%;
+    overflow-y: auto;
+}

@@ -1,0 +1,71 @@
+.main{
+    width: 99.9%;
+    height: 89.6%;
+    padding-top: 1%;
+}
+
+.main__graph{
+    width: 98%;
+    margin-left: 1%;
+    height: 46%;
+    margin-bottom: 1%;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+
+.main__expenses{
+    width: 98%;
+        margin-left: 1%;
+        height: 47%;
+        margin-bottom: 1%;
+        background-color: #f6f6f6;
+        border-radius: 10px;
+}
+
+.main__expenseHeading{
+    width: 96%;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main__expenseTable{
+    width: 96%;
+    margin: auto;
+}
+
+.main__expenseTableHead{
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d9dbde;
+}
+
+.main__expenseRow{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.main__expenseTableHeadCol{
+    flex: 0.25;
+}
+
+.main__expenseTableHeadCol2{
+    flex: 0.40;
+}
+
+.main__expenseTableHeadColOption{
+    flex: 0.10;
+    cursor: pointer;
+}
+
+.main__expenseTableOption{
+    color: red;
+}

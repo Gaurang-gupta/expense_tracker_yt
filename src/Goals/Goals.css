@@ -1,0 +1,82 @@
+.goals{
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 88%;
+    margin-bottom: 1%;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+}
+
+.goals__expenseTableHeadCol{
+    flex: 0.24;
+}
+
+.goals__table{
+    height: 83%;
+    overflow-y: auto;
+}
+
+.goals__options{
+    text-align: right;
+    flex: 0.04;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.goals__option{
+    cursor: pointer;
+    width: 20px;
+    height: 100%;
+}
+
+.goals__deleteOption{
+    color: red;
+    padding-left: 5px;
+}
+
+.goals__addGoal{
+    display: flex;
+    width: 96%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.goals__input{
+    background-color: #f6f6f6;
+    outline: none;
+    border: none;
+}
+
+.goals__submitButton{
+    width: 90px;
+    border: none;
+    outline: none;
+    padding: 10px 0px;
+    color: #525253;
+        font-size: 18px;
+        transition: all 0.1s ease-in-out;
+        border-radius: 50px;
+}
+
+.goals__submitButton:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.goals__progressBar{
+    width: 80%;
+    height: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+}
+
+.goals__complete{
+    width: 50%;
+    border-radius: 20px;
+    height: 100%;
+    background-color: green;
+}
