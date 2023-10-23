@@ -19,7 +19,7 @@ function Navbar({ user, setUser}) {
             </div>
             <div className='navbar__imageContainer'>
                 <img
-                    src={user.photoUrl}
+                    src={user?.photoUrl}
                     alt='user'
                     className='navbar__image'
                 />

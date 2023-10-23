@@ -27,12 +27,16 @@ function Goals({ user }) {
             navigate("/login")
         }
         const getGoalsDoc = async () => {
-            const querySnapshot = await getDocs(collection(db, "Users", user?.email, "Goals"));
-            const tempDoc = []
-            querySnapshot.forEach((doc) => {
-                tempDoc.push({ id: doc.id, ...doc.data() })
-            })
-            setDocs(tempDoc)
+            try{
+                const querySnapshot = await getDocs(collection(db, "Users", user?.email, "Goals"));
+                const tempDoc = []
+                querySnapshot.forEach((doc) => {
+                    tempDoc.push({ id: doc.id, ...doc.data() })
+                })
+                setDocs(tempDoc)
+            } catch (er) {
+                console.error("Error getting document: ", er);
+            }
         }
         getGoalsDoc()
     },[docs])
@@ -133,20 +137,20 @@ function Goals({ user }) {
                     <div className='goals__expenseTableHeadCol goals__options'></div>
                 </div>
 
-                {docs.map((doc) => (
-                    <div key={doc.id} className='main__expenseTableHead main__expenseRow'>
-                        <div className='goals__expenseTableHeadCol'>{doc.title}</div>
-                        <div className='goals__expenseTableHeadCol'>{doc.amount_needed}</div>
-                        <div className='goals__expenseTableHeadCol'>{doc.amount_saved}</div>
+                {docs?.map((doc) => (
+                    <div key={doc?.id} className='main__expenseTableHead main__expenseRow'>
+                        <div className='goals__expenseTableHeadCol'>{doc?.title}</div>
+                        <div className='goals__expenseTableHeadCol'>{doc?.amount_needed}</div>
+                        <div className='goals__expenseTableHeadCol'>{doc?.amount_saved}</div>
                         <div className='goals__expenseTableHeadCol'>
                             <div className='goals__progressBar'>
-                                <div className='goals__complete' style={{width: `${(doc.amount_saved/doc.amount_needed) * 100}%`}}></div>
+                                <div className='goals__complete' style={{width: `${(doc?.amount_saved/doc?.amount_needed) * 100}%`}}></div>
                                 <div></div>
                             </div>
                         </div>
                         <div className='goals__expenseTableHeadCol goals__options'>
                             <RiDeleteBin2Fill 
-                            onClick={() => deleteGoal(doc.id)} 
+                            onClick={() => deleteGoal(doc?.id)} 
                             className='goals__option goals__deleteOption'/>
                         </div>
                     </div>

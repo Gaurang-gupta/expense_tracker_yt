@@ -22,36 +22,40 @@ function App() {
     const [sortedDocs, setSortedDocs] = useState([]);
 
     const getExpenseDocs = async () => {
-        const querySnapshot = await getDocs(collection(db, "Users", user.email, "expenses"));
-        const tempDoc = []
-        const sortedTempDocs = []
-        querySnapshot.forEach((doc) => {
-            tempDoc.push({ id: doc.id, ...doc.data() })
-        })
-        
-        const newData = []
-        tempDoc.map(dat => {
-            newData.push({
+        try{
+          const querySnapshot = await getDocs(collection(db, "Users", user.email, "expenses"));
+          const tempDoc = []
+          const sortedTempDocs = []
+          querySnapshot.forEach((doc) => {
+              tempDoc.push({ id: doc.id, ...doc.data() })
+          })
+          
+          const newData = []
+          tempDoc.map(dat => {
+              newData.push({
+                  ...dat,
+                  amount: Number(dat.amount),
+              })
+              sortedTempDocs.push({
                 ...dat,
                 amount: Number(dat.amount),
-            })
-            sortedTempDocs.push({
-              ...dat,
-              amount: Number(dat.amount),
-            })
-        })
-        newData.sort((a, b) => {
-          let xa = new Date(a.date)
-          let xb = new Date(b.date)
-          return xb - xa
-        })
-        setDocs(newData)
-        sortedTempDocs.sort((a, b) => {
-          let xa = new Date(a.date)
-          let xb = new Date(b.date)
-          return xa - xb
-        })
-        setSortedDocs(sortedTempDocs)
+              })
+          })
+          newData.sort((a, b) => {
+            let xa = new Date(a.date)
+            let xb = new Date(b.date)
+            return xb - xa
+          })
+          setDocs(newData)
+          sortedTempDocs.sort((a, b) => {
+            let xa = new Date(a.date)
+            let xb = new Date(b.date)
+            return xa - xb
+          })
+          setSortedDocs(sortedTempDocs)
+        } catch (er) {
+          console.log("Error getting documents", er)
+        }
     }
 
   return (
